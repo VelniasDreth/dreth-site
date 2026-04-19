@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dreth Ltd — Coming Soon</title>
+  <title>Dreth Ltd — IT Consultancy &amp; Data Engineering</title>
+  <meta name="description" content="Dreth Ltd is a Scottish IT consultancy building DataClean — a professional data cleaning service launching June 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,30 +17,31 @@
       --off-white: #F7F5F0;
       --mid: #8a96a4;
       --rule: #d4cfc8;
+
+      /* Narrative palette — problem / treatment / outcome */
+      --clay: #C76A5A;   /* the problem */
+      --gold: #D4A24C;   /* the work */
+      --sage: #7FA074;   /* the result */
     }
 
     html, body {
-      height: 100%;
       background: var(--off-white);
       color: var(--navy);
       font-family: 'DM Mono', monospace;
       -webkit-font-smoothing: antialiased;
+      font-weight: 300;
     }
 
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      padding: 48px 24px;
+      padding: 64px 24px 48px;
     }
 
     .container {
-      max-width: 560px;
-      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(12px);
       animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
     }
 
@@ -47,71 +49,170 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .logo-wrap {
-      margin-bottom: 40px;
-    }
-
-    .logo-wrap svg {
-      width: 220px;
-      height: auto;
-      display: block;
-    }
-
-    .rule {
-      width: 100%;
-      height: 1.5px;
-      background: var(--navy);
-      margin-bottom: 36px;
-      transform-origin: left;
-      transform: scaleX(0);
-      animation: rule-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
-    }
-
     @keyframes rule-in {
       to { transform: scaleX(1); }
     }
 
-    .label {
+    /* ---- Header ---- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      gap: 24px;
+    }
+
+    .logo-wrap {
+      width: 160px;
+      flex-shrink: 0;
+    }
+
+    .logo-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .status {
+      text-align: right;
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--mid);
+      line-height: 1.9;
+      padding-top: 6px;
+    }
+
+    .status strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sage);
+      margin-right: 6px;
+      vertical-align: 2px;
+    }
+
+    .rule-primary {
+      width: 100%;
+      height: 1.5px;
+      background: var(--navy);
+      margin-bottom: 56px;
+      transform-origin: left;
+      transform: scaleX(0);
+      animation: rule-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    }
+
+    /* ---- Typography ---- */
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--mid);
       margin-bottom: 20px;
-      opacity: 0;
-      animation: reveal 0.6s ease 0.7s forwards;
     }
 
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 5vw, 38px);
+      font-size: clamp(30px, 4.5vw, 40px);
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.15;
       color: var(--navy);
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: reveal 0.6s ease 0.8s forwards;
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--navy);
+      margin-bottom: 18px;
+      letter-spacing: -0.005em;
     }
 
     p {
       font-size: 13px;
       line-height: 1.8;
       color: var(--navy-light);
-      font-weight: 300;
       margin-bottom: 16px;
-      opacity: 0;
-      animation: reveal 0.6s ease 0.9s forwards;
+      max-width: 560px;
     }
 
-    p + p {
-      animation-delay: 1s;
+    p:last-child {
+      margin-bottom: 0;
     }
 
-    .contact {
+    .lead {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--navy-light);
+      margin-bottom: 48px;
+    }
+
+    /* ---- Narrative sections with colour markers ---- */
+    section {
+      margin-bottom: 40px;
+      padding-left: 20px;
+      border-left: 2px solid var(--rule);
+      transition: border-color 0.3s ease;
+    }
+
+    section.problem {
       margin-top: 40px;
-      padding-top: 28px;
+      border-left-color: var(--clay);
+    }
+
+    section.work {
+      border-left-color: var(--gold);
+    }
+
+    section.outcome {
+      border-left-color: var(--sage);
+    }
+
+    .section-marker {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .section-marker.problem { color: var(--clay); }
+    .section-marker.work { color: var(--gold); }
+    .section-marker.outcome { color: var(--sage); }
+
+    .section-marker::before { content: "["; opacity: 0.55; margin-right: 4px; }
+    .section-marker::after { content: "]"; opacity: 0.55; margin-left: 4px; }
+
+    /* ---- Contact (reset to standard, no narrative colour) ---- */
+    .contact {
+      padding-top: 40px;
       border-top: 1px solid var(--rule);
-      opacity: 0;
-      animation: reveal 0.6s ease 1.1s forwards;
+      border-left: none;
+      padding-left: 0;
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 520px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .contact-label {
@@ -127,7 +228,7 @@
       color: var(--navy);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
-      padding-bottom: 1px;
+      padding-bottom: 2px;
       transition: border-color 0.2s ease;
     }
 
@@ -135,59 +236,114 @@
       border-color: var(--navy);
     }
 
+    /* ---- Footer ---- */
     .footer {
-      margin-top: 48px;
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
       font-size: 10px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--mid);
-      opacity: 0;
-      animation: reveal 0.6s ease 1.2s forwards;
     }
 
-    .footer span {
-      margin: 0 8px;
+    .footer span.sep {
       opacity: 0.4;
     }
+
+    /* ---- Stagger reveal ---- */
+    .reveal-1 { opacity: 0; animation: reveal 0.6s ease 0.7s forwards; }
+    .reveal-2 { opacity: 0; animation: reveal 0.6s ease 0.9s forwards; }
+    .reveal-3 { opacity: 0; animation: reveal 0.6s ease 1.05s forwards; }
+    .reveal-4 { opacity: 0; animation: reveal 0.6s ease 1.2s forwards; }
+    .reveal-5 { opacity: 0; animation: reveal 0.6s ease 1.35s forwards; }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <div class="logo-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 380 824 263" aria-label="Dreth Ltd">
-        <path fill="#1E2A3A" d="M233.968 431.197L263.93 431.122L264.054 590.012L236.569 589.96C236.52 587.102 236.351 582.259 236.712 579.298C236.796 578.611 238.406 577.906 238.467 575.769C237.315 575.881 228.751 583.065 225.033 584.762C211.256 591.048 197.43 591.488 183.322 586.852C178.995 585.403 174.869 583.41 171.044 580.921C152.23 568.753 143.842 548.466 144.916 526.726C146.575 493.123 175.461 469.234 208.647 473.783C219.046 475.209 225.342 479.035 233.773 484.782C234.219 466.992 233.663 449.023 233.968 431.197Z M198.326 502.432C214.883 499.587 230.594 510.751 233.356 527.321C236.117 543.891 224.876 559.546 208.293 562.226C191.825 564.887 176.303 553.741 173.56 537.287C170.818 520.833 181.886 505.256 198.326 502.432Z" fill-rule="evenodd" clip-rule="evenodd"/>
-        <path fill="#1E2A3A" d="M860.277 430.979L873.61 430.988C873.902 451.369 873.608 472.559 873.625 493.004L873.732 590.042L859.864 590.09C859.751 585.028 859.869 579.514 859.886 574.416C849.395 585.324 838.984 589.579 823.849 590.674C808.275 591.801 797.961 589.394 784.98 581.094C767.303 568.737 764.244 553.787 763.177 533.495C760.348 479.644 824.427 457.786 860.336 494.609L860.277 430.979Z M815.727 490.328C839.743 488.733 860.519 506.879 862.17 530.891C863.82 554.904 845.723 575.721 821.715 577.427C797.627 579.139 776.726 560.97 775.07 536.878C773.414 512.787 791.632 491.928 815.727 490.328Z" fill-rule="evenodd" clip-rule="evenodd"/>
-        <path fill="#1E2A3A" d="M377.785 473.685C407.329 470.881 432.176 488.788 439.599 517.396C441.71 525.532 441.56 532.968 441.413 541.25C413.082 540.997 384.75 540.915 356.419 541.003C358.421 547.787 361.167 552.529 366.818 556.895C373.317 561.978 381.606 564.193 389.774 563.029C398.528 561.812 405.48 557.622 410.82 550.651C418.007 550.815 425.729 550.616 432.957 550.549L439.511 550.541C417.658 610.649 331.903 598.252 324.866 537.841C323.176 522.667 327.628 507.448 337.227 495.576C347.667 482.419 361.203 475.64 377.785 473.685Z M379.89 499.648C393.211 498.017 404.795 503.98 409.848 516.565C402.879 516.818 395.372 516.747 388.362 516.803L357.715 516.814C362.902 506.507 368.355 501.854 379.89 499.648Z" fill-rule="evenodd" clip-rule="evenodd"/>
-        <path fill="#1E2A3A" d="M515.214 431.36C524.869 431.324 534.524 431.359 544.178 431.465L543.981 482.404C564.518 469.055 589.935 469.424 608.178 487.112C625.421 503.831 623.017 526.976 623.123 549.048L623.239 589.723L594.492 589.914L594.531 540.625C594.5 529.544 596.468 518.271 587.993 509.628C578.36 499.803 561.002 499.287 551.188 509.043C548.078 512.124 545.9 516.019 544.903 520.281C543.547 526.129 543.98 541.246 543.977 547.654L543.981 589.723L515.153 589.678L515.214 431.36Z"/>
-        <path fill="#1E2A3A" d="M463.653 444.755L478.598 444.694L478.856 475.031C488.07 475.161 497.581 475.026 506.818 475.013L506.895 500.489C497.569 500.33 488.242 500.263 478.915 500.289C478.745 516.654 478.601 533.051 478.643 549.413C478.694 569.568 492.469 567.293 507.481 566.459L507.47 576.548L507.494 589.414C490.961 591.287 471.452 591.893 458.783 579.063C454.081 574.248 450.918 568.141 449.7 561.522C448.302 554.193 448.983 531.212 449.005 522.25L449.056 444.799L463.653 444.755Z"/>
-        <path fill="#1E2A3A" d="M324.501 473.672C326.17 473.391 330.186 473.399 332.043 473.352L331.97 498.381C324.175 498.436 316.984 500.706 311.285 506.283C307.325 510.164 304.564 515.101 303.329 520.506C301.92 526.65 302.457 540.296 302.406 547.395L302.003 589.762L272.463 589.797L272.479 578.75L272.571 474.663C278.503 474.704 298.687 473.549 301.974 476.339C302.063 476.728 302.152 477.116 302.242 477.505C300.029 481.073 297.001 484.514 294.791 488.177C305.851 478.464 309.381 475.952 324.501 473.672Z"/>
-        <path fill="#1E2A3A" d="M709.116 443.405L722.193 443.286L722.356 478.447L760.49 478.361L760.464 490.534C747.705 490.769 734.942 490.761 722.183 490.511C722.163 502.682 720.815 555.713 723.843 563.764C726.17 569.947 730.352 573.032 736.086 575.757C744 578.676 752.314 578.028 760.603 577.732L760.581 590.676C746.194 590.81 730.156 591.263 719.246 580.368C709.171 570.307 708.926 555.765 709.117 542.501C709.22 535.393 709.128 528.286 709.117 521.214L709.116 443.405Z"/>
-        <path fill="#1E2A3A" d="M676.055 431.135L689.168 431.098C689.455 469.162 689.519 507.227 689.36 545.291C689.353 560.145 689.601 575.645 689.291 590.446L676.065 590.372L676.055 431.135Z"/>
-        <path fill="#1E2A3A" d="M867.113 401.032L903.766 400.997L903.772 433.875L897.486 433.757L897.478 407.674C887.965 407.2 876.749 407.473 867.112 407.472L867.113 401.032Z"/>
-        <path fill="#1E2A3A" d="M120.493 401.085L156.655 400.988L156.54 407.463L128.875 407.51L127.438 407.755C126.332 409.876 126.729 430.057 126.688 434.105L120.455 433.965L120.493 401.085Z"/>
-        <path fill="#1E2A3A" d="M897.346 589.499L903.767 589.53L903.89 622.586L872.897 622.616C871.069 622.677 869.298 622.938 867.685 622.165C866.634 620.73 866.974 618.6 867.021 616.704L897.454 616.602L897.346 589.499Z"/>
-        <path fill="#1E2A3A" d="M120.433 589.626L126.524 589.571L126.529 616.659C136.296 616.867 146.633 616.7 156.445 616.705L156.425 622.9L120.443 622.788L120.433 589.626Z"/>
-      </svg>
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 380 824 263" aria-label="Dreth Ltd">
+          <path fill="#1E2A3A" d="M233.968 431.197L263.93 431.122L264.054 590.012L236.569 589.96C236.52 587.102 236.351 582.259 236.712 579.298C236.796 578.611 238.406 577.906 238.467 575.769C237.315 575.881 228.751 583.065 225.033 584.762C211.256 591.048 197.43 591.488 183.322 586.852C178.995 585.403 174.869 583.41 171.044 580.921C152.23 568.753 143.842 548.466 144.916 526.726C146.575 493.123 175.461 469.234 208.647 473.783C219.046 475.209 225.342 479.035 233.773 484.782C234.219 466.992 233.663 449.023 233.968 431.197Z M198.326 502.432C214.883 499.587 230.594 510.751 233.356 527.321C236.117 543.891 224.876 559.546 208.293 562.226C191.825 564.887 176.303 553.741 173.56 537.287C170.818 520.833 181.886 505.256 198.326 502.432Z" fill-rule="evenodd" clip-rule="evenodd"/>
+          <path fill="#1E2A3A" d="M860.277 430.979L873.61 430.988C873.902 451.369 873.608 472.559 873.625 493.004L873.732 590.042L859.864 590.09C859.751 585.028 859.869 579.514 859.886 574.416C849.395 585.324 838.984 589.579 823.849 590.674C808.275 591.801 797.961 589.394 784.98 581.094C767.303 568.737 764.244 553.787 763.177 533.495C760.348 479.644 824.427 457.786 860.336 494.609L860.277 430.979Z M815.727 490.328C839.743 488.733 860.519 506.879 862.17 530.891C863.82 554.904 845.723 575.721 821.715 577.427C797.627 579.139 776.726 560.97 775.07 536.878C773.414 512.787 791.632 491.928 815.727 490.328Z" fill-rule="evenodd" clip-rule="evenodd"/>
+          <path fill="#1E2A3A" d="M377.785 473.685C407.329 470.881 432.176 488.788 439.599 517.396C441.71 525.532 441.56 532.968 441.413 541.25C413.082 540.997 384.75 540.915 356.419 541.003C358.421 547.787 361.167 552.529 366.818 556.895C373.317 561.978 381.606 564.193 389.774 563.029C398.528 561.812 405.48 557.622 410.82 550.651C418.007 550.815 425.729 550.616 432.957 550.549L439.511 550.541C417.658 610.649 331.903 598.252 324.866 537.841C323.176 522.667 327.628 507.448 337.227 495.576C347.667 482.419 361.203 475.64 377.785 473.685Z M379.89 499.648C393.211 498.017 404.795 503.98 409.848 516.565C402.879 516.818 395.372 516.747 388.362 516.803L357.715 516.814C362.902 506.507 368.355 501.854 379.89 499.648Z" fill-rule="evenodd" clip-rule="evenodd"/>
+          <path fill="#1E2A3A" d="M515.214 431.36C524.869 431.324 534.524 431.359 544.178 431.465L543.981 482.404C564.518 469.055 589.935 469.424 608.178 487.112C625.421 503.831 623.017 526.976 623.123 549.048L623.239 589.723L594.492 589.914L594.531 540.625C594.5 529.544 596.468 518.271 587.993 509.628C578.36 499.803 561.002 499.287 551.188 509.043C548.078 512.124 545.9 516.019 544.903 520.281C543.547 526.129 543.98 541.246 543.977 547.654L543.981 589.723L515.153 589.678L515.214 431.36Z"/>
+          <path fill="#1E2A3A" d="M463.653 444.755L478.598 444.694L478.856 475.031C488.07 475.161 497.581 475.026 506.818 475.013L506.895 500.489C497.569 500.330 488.242 500.263 478.915 500.289C478.745 516.654 478.601 533.051 478.643 549.413C478.694 569.568 492.469 567.293 507.481 566.459L507.470 576.548L507.494 589.414C490.961 591.287 471.452 591.893 458.783 579.063C454.081 574.248 450.918 568.141 449.700 561.522C448.302 554.193 448.983 531.212 449.005 522.250L449.056 444.799L463.653 444.755Z"/>
+          <path fill="#1E2A3A" d="M324.501 473.672C326.170 473.391 330.186 473.399 332.043 473.352L331.970 498.381C324.175 498.436 316.984 500.706 311.285 506.283C307.325 510.164 304.564 515.101 303.329 520.506C301.920 526.650 302.457 540.296 302.406 547.395L302.003 589.762L272.463 589.797L272.479 578.750L272.571 474.663C278.503 474.704 298.687 473.549 301.974 476.339C302.063 476.728 302.152 477.116 302.242 477.505C300.029 481.073 297.001 484.514 294.791 488.177C305.851 478.464 309.381 475.952 324.501 473.672Z"/>
+          <path fill="#1E2A3A" d="M709.116 443.405L722.193 443.286L722.356 478.447L760.490 478.361L760.464 490.534C747.705 490.769 734.942 490.761 722.183 490.511C722.163 502.682 720.815 555.713 723.843 563.764C726.170 569.947 730.352 573.032 736.086 575.757C744.000 578.676 752.314 578.028 760.603 577.732L760.581 590.676C746.194 590.810 730.156 591.263 719.246 580.368C709.171 570.307 708.926 555.765 709.117 542.501C709.220 535.393 709.128 528.286 709.117 521.214L709.116 443.405Z"/>
+          <path fill="#1E2A3A" d="M676.055 431.135L689.168 431.098C689.455 469.162 689.519 507.227 689.360 545.291C689.353 560.145 689.601 575.645 689.291 590.446L676.065 590.372L676.055 431.135Z"/>
+          <path fill="#1E2A3A" d="M867.113 401.032L903.766 400.997L903.772 433.875L897.486 433.757L897.478 407.674C887.965 407.200 876.749 407.473 867.112 407.472L867.113 401.032Z"/>
+          <path fill="#1E2A3A" d="M120.493 401.085L156.655 400.988L156.540 407.463L128.875 407.510L127.438 407.755C126.332 409.876 126.729 430.057 126.688 434.105L120.455 433.965L120.493 401.085Z"/>
+          <path fill="#1E2A3A" d="M897.346 589.499L903.767 589.530L903.890 622.586L872.897 622.616C871.069 622.677 869.298 622.938 867.685 622.165C866.634 620.730 866.974 618.600 867.021 616.704L897.454 616.602L897.346 589.499Z"/>
+          <path fill="#1E2A3A" d="M120.433 589.626L126.524 589.571L126.529 616.659C136.296 616.867 146.633 616.700 156.445 616.705L156.425 622.900L120.443 622.788L120.433 589.626Z"/>
+        </svg>
+      </div>
+      <div class="status">
+        <div><span class="status-dot"></span><strong>Launching</strong></div>
+        <div>June 2026</div>
+      </div>
     </div>
 
-    <div class="rule"></div>
+    <div class="rule-primary"></div>
 
-    <p class="label">Site under construction</p>
-
-    <h1>IT consultancy &amp; data engineering services, coming soon.</h1>
-
-    <p>Dreth Ltd is an IT consultancy based in Scotland, specialising in data engineering and software development. We help businesses clean, structure, and make sense of their data.</p>
-
-    <p>The full site is on its way. In the meantime, get in touch directly.</p>
-
-    <div class="contact">
-      <p class="contact-label">Enquiries</p>
-      <a href="mailto:hello@dreth.co.uk">hello@dreth.co.uk</a>
+    <!-- Lead -->
+    <div class="reveal-1">
+      <p class="eyebrow">IT Consultancy &amp; Data Engineering</p>
+      <h1>Data you can trust.<br>Reports that show the work.</h1>
+      <p class="lead">Dreth Ltd is a Scottish consultancy. Our first service, DataClean, helps businesses turn messy spreadsheets into data they can confidently build decisions on — with a clear record of what was changed and why.</p>
     </div>
 
-    <p class="footer">
-      Dreth Ltd <span>·</span> SC885239 <span>·</span> Registered in Scotland
-    </p>
+    <!-- THE PROBLEM -->
+    <section class="problem reveal-2">
+      <p class="section-marker problem">the problem</p>
+      <p>Business data accumulates mess. Customer lists pick up duplicates as staff and systems change. Dates end up in three different formats. Postcodes drift. Imports go wrong and nobody notices until the numbers stop making sense.</p>
+    </section>
+
+    <!-- THE WORK -->
+    <section class="work reveal-3">
+      <p class="section-marker work">the work</p>
+      <p>DataClean takes a file in the state you have it and returns it in the state you need. Your file stays on our infrastructure throughout — it is not uploaded to third-party cloud services or AI platforms. It is deleted automatically within 72 hours of you confirming the delivery.</p>
+      <p>Engagements are scoped and priced per job. Most complete within three to five business days.</p>
+    </section>
+
+    <!-- THE OUTCOME -->
+    <section class="outcome reveal-4">
+      <p class="section-marker outcome">the outcome</p>
+      <p>You receive the cleaned file alongside the original, a plain-language report explaining every change and the evidence behind it, and a diagnostic review identifying where further work upstream would strengthen your data over time. Nothing is changed silently, and anything you disagree with you can verify and reverse.</p>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact reveal-5">
+      <h2>Get in touch</h2>
+      <p>DataClean opens to clients in June. Until then, we are happy to discuss data problems, scope upcoming engagements, or answer questions from advisors and referral partners.</p>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-label">General enquiries</div>
+          <a href="mailto:hello@dreth.co.uk">hello@dreth.co.uk</a>
+        </div>
+        <div>
+          <div class="contact-label">Direct</div>
+          <a href="mailto:davidmcgowan@dreth.co.uk">davidmcgowan@dreth.co.uk</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div>Dreth Ltd</div>
+      <div class="sep">·</div>
+      <div>SC885239</div>
+      <div class="sep">·</div>
+      <div>Registered in Scotland</div>
+      <div class="sep">·</div>
+      <div>Hamilton, ML3 9AP</div>
+    </div>
 
   </div>
 </body>
